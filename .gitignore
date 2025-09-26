@@ -2,3 +2,4 @@
 .DS_Store
 .godot/editor
 /.godot
+*.cfg
