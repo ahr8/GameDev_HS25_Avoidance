@@ -1,1 +1,5 @@
 res://Scenes/Main.tscn
+res://Scripts/UI.gd
+res://Scripts/Dot.gd
+res://Scripts/GameState.gd
+res://Scripts/Player.gd

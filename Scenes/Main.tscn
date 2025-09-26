@@ -43,27 +43,28 @@ offset_bottom = 23.0
 text = "Time: 0.00 Best: 0.00"
 
 [node name="GameOver" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
+offset_left = -286.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="ColorRect" type="ColorRect" parent="UI/GameOver"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Label" type="Label" parent="UI/GameOver"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "GAME OVER\\nPress Enter to Retry"
+offset_left = -572.0
+offset_top = 294.0
+offset_right = -192.0
+offset_bottom = 435.0
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER 
+Press R to Retry"
 
 [node name="DotSpawner" type="Node" parent="."]
 process_mode = 1
 script = ExtResource("4_pbw6q")
 dot_scene = ExtResource("5_v1gob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

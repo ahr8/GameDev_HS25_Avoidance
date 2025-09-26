@@ -10,7 +10,7 @@ func _ready():
 	queue_redraw()
 
 func _process(delta):
-	global_position.y += fall_speed * delta
+	global_position.y += fall_speed * GameState.dot_speed_multiplier * delta
 	if global_position.y > screen_h + radius + 10.0:
 		queue_free()
 
