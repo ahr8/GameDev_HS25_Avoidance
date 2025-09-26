@@ -12,6 +12,12 @@ var screen_size := Vector2.ZERO
 @export var nudge_spring_stiffness := 120.0
 @export var nudge_spring_damping := 14.0
 @export var y_margin := 24.0
+@export var start_at_bottom := true
+@export var start_x_fraction := 0.5
+@export var move_left_action := "ui_left"
+@export var move_right_action := "ui_right"
+@export var effect_up_action := "ui_up"
+@export var effect_down_action := "ui_down"
 
 var effect_active := false
 var effect_timer := 0.0
@@ -23,13 +29,13 @@ var nudge_velocity := 0.0
 func _ready():
 	add_to_group("player")
 	screen_size = get_viewport().get_visible_rect().size
-	global_position = Vector2(screen_size.x * 0.5, screen_size.y - 60)
+	global_position = Vector2(screen_size.x * start_x_fraction, screen_size.y - 60 if start_at_bottom else 60)
 	base_y = global_position.y
 	print("Player ready at ", global_position)
 
 func _physics_process(delta):
 	# Horizontal movement
-	var x := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var x := Input.get_action_strength(move_right_action) - Input.get_action_strength(move_left_action)
 	var target_speed := x * speed
 	if x != 0.0:
 		velocity.x = move_toward(velocity.x, target_speed, acceleration * delta)
@@ -49,14 +55,14 @@ func _physics_process(delta):
 
 	# Start effects on press if available
 	if not effect_active and cooldown_timer == 0.0:
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed(effect_up_action):
 			_start_effect(1)
-		elif Input.is_action_just_pressed("ui_down"):
+		elif Input.is_action_just_pressed(effect_down_action):
 			_start_effect(-1)
 
 	# Early end on release
 	if effect_active:
-		if (effect_direction == 1 and Input.is_action_just_released("ui_up")) or (effect_direction == -1 and Input.is_action_just_released("ui_down")):
+		if (effect_direction == 1 and Input.is_action_just_released(effect_up_action)) or (effect_direction == -1 and Input.is_action_just_released(effect_down_action)):
 			_end_effect()
 
 	move_and_slide()
