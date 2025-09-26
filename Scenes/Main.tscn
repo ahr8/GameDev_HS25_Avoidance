@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cc8lf634ivfrt"]
+
+[ext_resource type="Script" uid="uid://c7fa6wuf65qqr" path="res://Scripts/Main.gd" id="1_kln2b"]
+[ext_resource type="Script" uid="uid://c72vtb2eum4ck" path="res://Scripts/Player.gd" id="1_r150o"]
+[ext_resource type="Script" uid="uid://cpwfclwtrfklu" path="res://Scripts/UI.gd" id="3_rgh2o"]
+[ext_resource type="Script" uid="uid://gbg01trkt5i3" path="res://Scripts/DotSpawner.gd" id="4_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://c2x1gfe273x2" path="res://Scenes/Dot.tscn" id="5_v1gob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
+size = Vector2(48, 24)
+
+[sub_resource type="Gradient" id="Gradient_kln2b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgh2o"]
+gradient = SubResource("Gradient_kln2b")
+fill = 2
+fill_from = Vector2(0.48364487, 0.46962616)
+fill_to = Vector2(1, 1)
+
+[node name="Main" type="Node2D" groups=["game"]]
+process_mode = 2
+script = ExtResource("1_kln2b")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+process_mode = 1
+collision_mask = 2
+script = ExtResource("1_r150o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_idj7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_rgh2o")
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 1
+script = ExtResource("3_rgh2o")
+
+[node name="TimerLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time: 0.00 Best: 0.00"
+
+[node name="GameOver" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="UI/GameOver"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/GameOver"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAME OVER\\nPress Enter to Retry"
+
+[node name="DotSpawner" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("4_pbw6q")
+dot_scene = ExtResource("5_v1gob")

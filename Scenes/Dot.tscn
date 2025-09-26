@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2x1gfe273x2"]
+
+[ext_resource type="Script" uid="uid://crojhxxry4cl1" path="res://Scripts/Dot.gd" id="1_4sto3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_atf2v"]
+
+[node name="Dot" type="Area2D"]
+process_mode = 1
+collision_layer = 2
+script = ExtResource("1_4sto3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_atf2v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
