@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://c2x1gfe273x2" path="res://Scenes/Dot.tscn" id="5_v1gob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
-size = Vector2(48, 24)
 
 [sub_resource type="Gradient" id="Gradient_kln2b"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rgh2o"]
 gradient = SubResource("Gradient_kln2b")
+width = 20
+height = 20
 fill = 2
 fill_from = Vector2(0.48364487, 0.46962616)
 fill_to = Vector2(1, 1)
