@@ -26,10 +26,13 @@ var effect_direction := 0 # 1 for up (faster), -1 for down (slower)
 var base_y := 0.0
 var nudge_velocity := 0.0
 
+
+
+
 func _ready():
 	add_to_group("player")
 	screen_size = get_viewport().get_visible_rect().size
-	global_position = Vector2(screen_size.x * start_x_fraction, screen_size.y - 60 if start_at_bottom else 60)
+	global_position = Vector2(screen_size.x * start_x_fraction, (screen_size.y - 60.0) if start_at_bottom else 60.0)
 	base_y = global_position.y
 	print("Player ready at ", global_position)
 
@@ -79,7 +82,16 @@ func _physics_process(delta):
 	global_position.y += nudge_velocity * delta
 	# Ensure final position stays in bounds
 	global_position.y = clamp(global_position.y, y_margin, screen_size.y - y_margin)
-
+	
+	# --- Handle animations ---
+	if x < 0:
+		$AnimatedSprite2D.animation = "left"
+	elif x > 0:
+		$AnimatedSprite2D.animation = "right"
+	elif effect_active and effect_direction == 1:
+		$AnimatedSprite2D.animation = "boost"
+	else:
+		$AnimatedSprite2D.animation = "idle"
 
 func _start_effect(dir: int) -> void:
 	effect_active = true
