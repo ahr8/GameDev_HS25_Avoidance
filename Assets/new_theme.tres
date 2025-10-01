@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b71gxr652us6e"]
+
+[ext_resource type="FontFile" uid="uid://qk8uo3teoejf" path="res://Assets/Futuristic Armour.otf" id="1_sdao3"]
+
+[resource]
+default_font = ExtResource("1_sdao3")

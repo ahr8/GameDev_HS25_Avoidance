@@ -35,8 +35,9 @@ func _process(delta):
 		_spawn_dot()
 		# Schedule the next spawn time:
 		# start_interval is reduced over time based on "accel"
-		# never goes below min_interval
-		next_time = elapsed + max(min_interval, start_interval - elapsed * accel)
+		# Cap acceleration at 38 seconds, then maintain constant rate
+		var accel_time = min(elapsed, 38.0)
+		next_time = elapsed + max(min_interval, start_interval - accel_time * accel)
 
 # Handles actually creating and adding a dot to the scene.
 func _spawn_dot():

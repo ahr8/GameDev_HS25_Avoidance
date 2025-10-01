@@ -1,0 +1,289 @@
+[gd_scene load_steps=10 format=3 uid="uid://c57fgsq1afk5y"]
+
+[ext_resource type="Script" uid="uid://c2p114neqerr4" path="res://Scripts/StartMenu.gd" id="1_start"]
+[ext_resource type="Texture2D" uid="uid://b6xekr2ipcj1m" path="res://Assets/background.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://boy00c38fftqk" path="res://Assets/arrow.png" id="2_h303d"]
+[ext_resource type="Theme" uid="uid://b71gxr652us6e" path="res://Assets/new_theme.tres" id="3_dl0pg"]
+[ext_resource type="Texture2D" uid="uid://cmb7x4ilr80m7" path="res://Assets/wasd.png" id="5_ujd4t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.05, 0.06, 0.1, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.9, 1, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.1, 0.8, 1, 0.25)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.03, 0.04, 0.08, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85, 0.2, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(1, 0.85, 0.2, 0.25)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.08, 0.1, 0.16, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.3, 1, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0.7, 0.3, 1, 0.3)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.02, 0.03, 0.06, 0.65)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.8, 0.3, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(1, 0.8, 0.3, 0.25)
+shadow_size = 12
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_start")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 24.0
+offset_right = 300.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme = ExtResource("3_dl0pg")
+theme_override_colors/font_color = Color(1, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 56
+text = "its raining stars"
+horizontal_alignment = 1
+
+[node name="LeftPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 171.0
+offset_top = -65.0
+offset_right = 511.0
+offset_bottom = 55.0
+grow_vertical = 2
+theme = ExtResource("3_dl0pg")
+theme_override_constants/separation = 16
+
+[node name="StartOneButton" type="Button" parent="LeftPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.8, 1, 0.8)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2")
+text = "start one ship"
+
+[node name="StartTwoButton" type="Button" parent="LeftPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.8, 1, 0.8)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2")
+text = "start two ships"
+
+[node name="RightPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.93700004
+anchor_top = 0.38200003
+anchor_right = 0.93700004
+anchor_bottom = 0.38200003
+offset_left = -421.3601
+offset_top = -14.040009
+offset_right = -81.36011
+offset_bottom = 155.95999
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("3_dl0pg")
+theme_override_constants/separation = 16
+
+[node name="SingleScoreLabel" type="Label" parent="RightPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.95, 1, 1)
+theme_override_colors/font_outline_color = Color(0.7, 0.3, 1, 0.9)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4")
+text = "Single Ship score:
+0.00s"
+horizontal_alignment = 1
+
+[node name="TwoScoreLabel" type="Label" parent="RightPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.95, 1, 1)
+theme_override_colors/font_outline_color = Color(0.7, 0.3, 1, 0.9)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_4")
+text = "Two Ship score:
+0.00s"
+horizontal_alignment = 1
+
+[node name="SinglePlayerOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_dl0pg")
+
+[node name="Dimmer" type="ColorRect" parent="SinglePlayerOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="OverlayTitle" type="Label" parent="SinglePlayerOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 199.0
+offset_right = 108.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="ControlsTexture1" type="TextureRect" parent="SinglePlayerOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 258.0
+offset_right = 143.0
+offset_bottom = 446.0
+grow_horizontal = 2
+texture = ExtResource("2_h303d")
+stretch_mode = 5
+
+[node name="TwoPlayerOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_dl0pg")
+
+[node name="Dimmer" type="ColorRect" parent="TwoPlayerOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="OverlayTitle" type="Label" parent="TwoPlayerOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 216.0
+offset_right = 104.0
+offset_bottom = 256.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="ControlsTexture1" type="TextureRect" parent="TwoPlayerOverlay"]
+layout_mode = 1
+offset_left = 203.0
+offset_top = 255.0
+offset_right = 485.0
+offset_bottom = 449.0
+texture = ExtResource("5_ujd4t")
+stretch_mode = 5
+
+[node name="ControlsTexture2" type="TextureRect" parent="TwoPlayerOverlay"]
+layout_mode = 1
+offset_left = 813.0
+offset_top = 262.0
+offset_right = 1078.0
+offset_bottom = 450.0
+texture = ExtResource("2_h303d")
+stretch_mode = 5
+
+[node name="OverlayTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true

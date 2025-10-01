@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://qk8uo3teoejf"
+path="res://.godot/imported/Futuristic Armour.otf-fad5c98bbc30d2a79170f924c68ed0f9.fontdata"
+
+[deps]
+
+source_file="res://Assets/Futuristic Armour.otf"
+dest_files=["res://.godot/imported/Futuristic Armour.otf-fad5c98bbc30d2a79170f924c68ed0f9.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

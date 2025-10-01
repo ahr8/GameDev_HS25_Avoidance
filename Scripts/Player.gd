@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 420.0
 var screen_size := Vector2.ZERO
-@export var vertical_nudge := 60.0
+@export var vertical_nudge := 30.0
 @export var effect_duration := 3.0
 @export var effect_cooldown := 3.0
 @export var acceleration := 1600.0
@@ -32,7 +32,7 @@ var nudge_velocity := 0.0
 func _ready():
 	add_to_group("player")
 	screen_size = get_viewport().get_visible_rect().size
-	global_position = Vector2(screen_size.x * start_x_fraction, (screen_size.y - 60.0) if start_at_bottom else 60.0)
+	global_position = Vector2(screen_size.x * start_x_fraction, (screen_size.y - 120.0) if start_at_bottom else 60.0)
 	base_y = global_position.y
 	print("Player ready at ", global_position)
 
@@ -40,6 +40,11 @@ func _physics_process(delta):
 	# Horizontal movement
 	var x := Input.get_action_strength(move_right_action) - Input.get_action_strength(move_left_action)
 	var target_speed := x * speed
+	
+	# Debug output for two player mode
+	if GameState.game_mode == "two" and (x != 0.0 or Input.is_action_pressed(move_left_action) or Input.is_action_pressed(move_right_action)):
+		print("Player input detected - action: ", move_left_action, "/", move_right_action, " strength: ", x)
+	
 	if x != 0.0:
 		velocity.x = move_toward(velocity.x, target_speed, acceleration * delta)
 	else:

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var fall_speed: float = 260.0
-@export var radius: float = 10.0
+@export var radius: float = 25.0
 @export var color: Color = Color(1, 0.8, 0.3) # golden/yellow star
 var screen_h: float
 var rotation_angle: float = 0.0
@@ -17,7 +17,7 @@ func _process(delta):
 		queue_free()
 
 	# Twinkle effect (size oscillates)
-	radius = 6.0 + sin(Time.get_ticks_msec() / 1000.0 * twinkle_speed) * 2.0
+	radius = 20.0 + sin(Time.get_ticks_msec() / 1000.0 * twinkle_speed) * 5.0
 	# Rotate the star
 	rotation_angle += delta * 2.0
 	queue_redraw()

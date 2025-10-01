@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cc8lf634ivfrt"]
+[gd_scene load_steps=55 format=3 uid="uid://cc8lf634ivfrt"]
 
 [ext_resource type="Script" uid="uid://c7fa6wuf65qqr" path="res://Scripts/Main.gd" id="1_kln2b"]
 [ext_resource type="Script" uid="uid://c72vtb2eum4ck" path="res://Scripts/Player.gd" id="1_r150o"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwxlmcsdxapr" path="res://Assets/spaceship_sprites/Fighter/Turn_1.png" id="5_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://c2x1gfe273x2" path="res://Scenes/Dot.tscn" id="5_v1gob"]
 [ext_resource type="Texture2D" uid="uid://ddstxojbqmjck" path="res://Assets/spaceship_sprites/Fighter/Turn_2.png" id="6_4kpch"]
+[ext_resource type="Theme" uid="uid://b71gxr652us6e" path="res://Assets/new_theme.tres" id="10_grg3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
 
@@ -379,29 +380,42 @@ autoplay = "idle"
 process_mode = 1
 script = ExtResource("3_rgh2o")
 
-[node name="TimerLabel" type="Label" parent="UI"]
-offset_right = 190.0
-offset_bottom = 40.0
-text = "Time: 0.00 Best: 0.00"
+[node name="TimeLabel" type="Label" parent="UI"]
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 200.0
+offset_bottom = 59.0
+theme = ExtResource("10_grg3l")
+theme_type_variation = &"HeaderLarge"
+text = "Time: 0.00"
+
+[node name="BestLabel" type="Label" parent="UI"]
+offset_left = 220.0
+offset_top = 19.0
+offset_right = 400.0
+offset_bottom = 59.0
+theme = ExtResource("10_grg3l")
+theme_type_variation = &"HeaderLarge"
+text = "Best: 0.00"
 
 [node name="GameOver" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -286.0
-offset_bottom = 40.0
+offset_left = -1275.0
+offset_bottom = 1030.0
 grow_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/GameOver"]
 layout_mode = 0
-offset_left = -572.0
-offset_top = 294.0
-offset_right = -192.0
-offset_bottom = 435.0
+offset_left = 485.0
+offset_top = 355.0
+offset_right = 771.0
+offset_bottom = 407.0
+theme = ExtResource("10_grg3l")
 theme_override_font_sizes/font_size = 50
-text = "GAME OVER 
-Press R to Retry"
+text = "GAME OVER "
 
 [node name="DotSpawner" type="Node" parent="."]
 process_mode = 1
